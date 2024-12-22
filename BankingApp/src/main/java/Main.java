@@ -13,9 +13,10 @@ public class Main {
         boolean loggedIn = false;
 
         // Display options to user
-        System.out.println("Welcome to the Business ATM.");
+        System.out.println("Welcome to the Business ATM.\n");
         System.out.println("1. Login");
         System.out.println("2. Create account");
+        System.out.print("Type an option and press enter: ");
 
         // Get user input
         int choice = scanner.nextInt();
