@@ -203,10 +203,10 @@ public class Main {
     }
 
     private static boolean login(Scanner scanner) {
-        System.out.println("Please enter your username: ");
+        System.out.print("Please enter your username: ");
         String username = scanner.nextLine();
 
-        System.out.println("Please enter your password: ");
+        System.out.print("Please enter your password: ");
         String password = scanner.nextLine();
 
         // check if the username and password are correct
