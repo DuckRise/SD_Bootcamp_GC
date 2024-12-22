@@ -16,11 +16,19 @@ public class Main {
         System.out.println("Welcome to the Business ATM.\n");
         System.out.println("1. Login");
         System.out.println("2. Create account");
-        System.out.print("Type an option and press enter: ");
 
         // Get user input
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+        int choice;
+        while (true) {
+            System.out.print("Type an option and press enter: ");
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                break;
+            } else {
+                System.out.println("Invalid option, please try again.");
+                scanner.next();
+            }
+        }
 
         // Handle user input
         if (choice == 1) {
