@@ -23,29 +23,30 @@ public class Main {
             System.out.print("Type an option and press enter: ");
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
-                break;
+                scanner.nextLine();
+                // Handle user input
+                if (choice == 1) {
+                    // Login
+                    loggedIn = login(scanner);
+                    break;
+                } else if (choice == 2) {
+                    // Create account
+                    System.out.print("Enter username: ");
+                    String username = scanner.nextLine();
+                    System.out.print("Enter password: ");
+                    String password = scanner.nextLine();
+
+                    // Create new user account
+                    createUserAccount(username, password);
+                    System.out.println("Account created successfully!");
+                    break;
+                } else {
+                    System.out.println("Invalid input. Please try again.");
+                }
             } else {
                 System.out.println("Invalid option, please try again.");
                 scanner.next();
             }
-        }
-
-        // Handle user input
-        if (choice == 1) {
-            // Login
-            loggedIn = login(scanner);
-        } else if (choice == 2) {
-            // Create account
-            System.out.print("Enter username: ");
-            String username = scanner.nextLine();
-            System.out.print("Enter password: ");
-            String password = scanner.nextLine();
-
-            // Create new user account
-            createUserAccount(username, password);
-            System.out.println("Account created successfully!");
-        } else {
-            System.out.println("Invalid input. Please try again.");
         }
 
         // Continue with ATM functionality if user is logged in
