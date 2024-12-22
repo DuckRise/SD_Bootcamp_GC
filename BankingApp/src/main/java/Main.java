@@ -211,7 +211,7 @@ public class Main {
 
         // check if the username and password are correct
         if (username.equals("myusername") && password.equals("mypassword")) {
-            System.out.println("Login successful!");
+            System.out.println("Login successful!\n");
             return true;
         } else {
             System.out.println("Invalid username or password. Please try again.");
