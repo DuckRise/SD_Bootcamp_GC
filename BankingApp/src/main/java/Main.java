@@ -3,49 +3,20 @@ import java.util.Scanner;
 
 public class Main {
     private final ArrayList<BankAccount> accounts;
+    static Scanner scanner = new Scanner(System.in);
+    static boolean loggedIn = false;
 
     public Main() {
         accounts = new ArrayList<>();
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        boolean loggedIn = false;
-
-        // Display options to user
         System.out.println("Welcome to the Business ATM.\n");
-        System.out.println("1. Login");
-        System.out.println("2. Create account");
-
-        // Get user input
-        int choice;
-        while (true) {
-            System.out.print("Type an option and press enter: ");
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-                scanner.nextLine();
-                // Handle user input
-                if (choice == 1) {
-                    // Login
-                    loggedIn = login(scanner);
-                    break;
-                } else if (choice == 2) {
-                    // Create account
-                    System.out.print("Enter username: ");
-                    String username = scanner.nextLine();
-                    System.out.print("Enter password: ");
-                    String password = scanner.nextLine();
-
-                    // Create new user account
-                    createUserAccount(username, password);
-                    System.out.println("Account created successfully!");
-                    break;
-                } else {
-                    System.out.println("Invalid input. Please try again.");
-                }
-            } else {
-                System.out.println("Invalid option, please try again.");
-                scanner.next();
+        
+        while (!loggedIn) {
+            welcomeScreen();
+            if (loggedIn) {
+                break;
             }
         }
 
@@ -198,6 +169,45 @@ public class Main {
                         System.out.println("Invalid option! Please select a valid option.");
                         break;
                 }
+            }
+        }
+    }
+
+    private static void welcomeScreen(){
+        // Display options to user
+        System.out.println("***Main menu***");
+        System.out.println("1. Login");
+        System.out.println("2. Create account");
+
+        // Get user input
+        int choice;
+        while (true) {
+            System.out.print("Type an option and press enter: ");
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                scanner.nextLine();
+                // Handle user input
+                if (choice == 1) {
+                    // Login
+                    loggedIn = login(scanner);
+                    break;
+                } else if (choice == 2) {
+                    // Create account
+                    System.out.print("Enter username: ");
+                    String username = scanner.nextLine();
+                    System.out.print("Enter password: ");
+                    String password = scanner.nextLine();
+
+                    // Create new user account
+                    createUserAccount(username, password);
+                    System.out.println("Account created successfully!\n");
+                    break;
+                } else {
+                    System.out.println("Invalid input. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid option, please try again.");
+                scanner.next();
             }
         }
     }
