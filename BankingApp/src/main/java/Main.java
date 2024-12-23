@@ -5,6 +5,7 @@ public class Main {
     private final ArrayList<BankAccount> accounts;
     static Scanner scanner = new Scanner(System.in);
     static boolean loggedIn = false;
+    static ArrayList<User> userList = new ArrayList<>();
 
     public Main() {
         accounts = new ArrayList<>();
@@ -220,16 +221,22 @@ public class Main {
         String password = scanner.nextLine();
 
         // check if the username and password are correct
-        if (username.equals("myusername") && password.equals("mypassword")) {
-            System.out.println("Login successful!\n");
-            return true;
-        } else {
-            System.out.println("Invalid username or password. Please try again.");
-            return false;
+        //if (username.equals("myusername") && password.equals("mypassword")) {
+        for (User user : userList) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                System.out.println("Login successful!\n");
+                return true;
+            } else {
+                System.out.println("Invalid username or password. Please try again.");
+                return false;
+            }
         }
+        return false;
     }
 
     private static void createUserAccount(String username, String password) {
+        User newUser = new User(username, password);
+        userList.add(newUser);
     }
 
     public void addAccount(BankAccount account) {
