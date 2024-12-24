@@ -56,18 +56,20 @@ public class Main {
 
                         BankAccount account = null;
 
+                        float startingBalance = 0;
+
                         switch (accountType) {
                             case 1:
                                 account = new SmallBusinessAccount(accountName, Integer.toString(atm.accounts.size()
-                                        + 1), accountType);
+                                        + 1), startingBalance);
                                 break;
                             case 2:
                                 account = new CommunityAccount(accountName, Integer.toString(atm.accounts.size() + 1),
-                                        accountType);
+                                startingBalance);
                                 break;
                             case 3:
                                 account = new ClientAccount(accountName, Integer.toString(atm.accounts.size() + 1),
-                                        accountType);
+                                startingBalance);
                                 break;
                             default:
                                 System.out.println("Invalid account type!");
