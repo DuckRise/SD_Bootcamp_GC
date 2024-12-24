@@ -158,7 +158,7 @@ public class Main {
                         double balance = atm.checkBalance(balanceAccountNumber);
 
                         if (balance != -1) {
-                            System.out.println("Balance of account " + balanceAccountNumber + ": " + balance);
+                            System.out.println("Balance of account " + balanceAccountNumber + ": " + balance + "\n");
                         } else {
                             System.out.println("Balance check failed! Account not found.");
                         }
