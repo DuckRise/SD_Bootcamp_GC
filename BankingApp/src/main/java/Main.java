@@ -76,8 +76,8 @@ public class Main {
 
                         if (account != null) {
                             atm.addAccount(account);
-                            System.out.println("Account added successfully!");
-                            System.out.println(account);
+                            System.out.println("Successfully added:     " + account + "     -     AccountName: " + 
+                                accountName + "     AccountNumber: " + account.getAccountNumber() + "\n");
                         }
                         break;
 
