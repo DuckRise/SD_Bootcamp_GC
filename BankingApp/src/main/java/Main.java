@@ -220,17 +220,14 @@ public class Main {
         System.out.print("Please enter your password: ");
         String password = scanner.nextLine();
 
-        // check if the username and password are correct
-        //if (username.equals("myusername") && password.equals("mypassword")) {
+        // Check if the username and password are correct
         for (User user : userList) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 System.out.println("Login successful!\n");
                 return true;
-            } else {
-                System.out.println("Invalid username or password. Please try again.");
-                return false;
             }
         }
+        System.out.println("Invalid username or password. Please try again.");
         return false;
     }
 
