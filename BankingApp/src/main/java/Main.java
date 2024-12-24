@@ -95,17 +95,17 @@ public class Main {
 
                         if (depositSuccess) {
                             System.out.println("Deposit successful!");
-                            System.out.println("New balance: " + atm.checkBalance(depositAccountNumber));
+                            System.out.println("New balance: " + atm.checkBalance(depositAccountNumber) + "\n");
                         } else {
-                            System.out.println("Deposit failed! Account not found.");
+                            System.out.println("Deposit failed! Account not found.\n");
                         }
                         break;
 
                     case 3:
-                        System.out.println("Please enter the account number:");
+                        System.out.print("Please enter the account number: ");
                         String withdrawAccountNumber = scanner.nextLine();
 
-                        System.out.println("Please enter the withdrawal amount:");
+                        System.out.print("Please enter the withdrawal amount: ");
                         double withdrawAmount = scanner.nextDouble();
                         scanner.nextLine();
 
