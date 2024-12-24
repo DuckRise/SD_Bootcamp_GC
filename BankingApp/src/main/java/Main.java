@@ -82,10 +82,10 @@ public class Main {
                         break;
 
                     case 2:
-                        System.out.println("Please enter the account number:");
+                        System.out.print("Please enter the account number: ");
                         String depositAccountNumber = scanner.nextLine();
 
-                        System.out.println("Please enter the deposit amount:");
+                        System.out.print("Please enter the deposit amount: ");
                         double depositAmount = scanner.nextDouble();
                         scanner.nextLine();
 
