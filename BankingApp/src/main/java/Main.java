@@ -214,6 +214,11 @@ public class Main {
     }
 
     private static boolean login(Scanner scanner) {
+        if (userList.isEmpty()) {
+            System.out.println("There are no user accounts on the system, you might need to try creating one first!\n");
+            return false;
+        }
+
         System.out.print("Please enter your username: ");
         String username = scanner.nextLine();
 
@@ -227,7 +232,7 @@ public class Main {
                 return true;
             }
         }
-        System.out.println("Invalid username or password. Please try again.");
+        System.out.println("Invalid username or password. Please try again.\n");
         return false;
     }
 
