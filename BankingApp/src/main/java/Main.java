@@ -51,7 +51,7 @@ public class Main {
                         int accountType = scanner.nextInt();
                         scanner.nextLine();
 
-                        System.out.println("Please enter the account name:");
+                        System.out.print("Please enter the account name: ");
                         String accountName = scanner.nextLine();
 
                         BankAccount account = null;
