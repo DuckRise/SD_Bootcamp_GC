@@ -6,6 +6,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static boolean loggedIn = false;
     static ArrayList<User> userList = new ArrayList<>();
+    static String currentUser;
 
     public Main() {
         accounts = new ArrayList<>();
@@ -26,7 +27,7 @@ public class Main {
             Main atm = new Main();
 
             while (true) {
-                System.out.println("Welcome to the Business ATM system!");
+                System.out.println("Welcome, " + currentUser + " to the Business ATM system!");
                 System.out.println("Please select an option:");
                 System.out.println("1. Add an account");
                 System.out.println("2. Deposit money");
@@ -229,6 +230,7 @@ public class Main {
         for (User user : userList) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 System.out.println("Login successful!\n");
+                currentUser = username;
                 return true;
             }
         }
