@@ -152,7 +152,7 @@ public class Main {
 
 
                     case 5:
-                        System.out.println("Please enter the account number:");
+                        System.out.print("Please enter the account number: ");
                         String balanceAccountNumber = scanner.nextLine();
 
                         double balance = atm.checkBalance(balanceAccountNumber);
