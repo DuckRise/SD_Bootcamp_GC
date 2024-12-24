@@ -113,9 +113,9 @@ public class Main {
 
                         if (withdrawSuccess) {
                             System.out.println("Withdrawal successful!");
-                            System.out.println("New balance: " + atm.checkBalance(withdrawAccountNumber));
+                            System.out.println("New balance: " + atm.checkBalance(withdrawAccountNumber + "\n"));
                         } else {
-                            System.out.println("Withdrawal failed! Account not found or insufficient balance.");
+                            System.out.println("Withdrawal failed! Account not found or insufficient balance.\n");
                         }
                         break;
 
