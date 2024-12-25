@@ -135,7 +135,7 @@ public class Main {
                             double transferAmount = scanner.nextDouble();
                             scanner.nextLine();
 
-                            boolean transferSuccess = account1.transfer(account2, transferAmount);
+                            boolean transferSuccess = account1.transfer(account1, account2, transferAmount);
 
                             if (transferSuccess) {
                                 System.out.println("Transfer successful!");

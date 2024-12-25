@@ -23,10 +23,11 @@ public class BankAccount {
         }
     }
 
-    public boolean transfer(BankAccount toAccount, double amount) {
-        if (balance - amount >= 0) {
-            balance -= amount;
+    public boolean transfer(BankAccount fromAccount, BankAccount toAccount, double amount) {
+        if (fromAccount.balance - amount >= 0) {
+            fromAccount.withdraw(amount);
             toAccount.deposit(amount);
+            return true;
         } else {
             System.out.println("Insufficient funds!");
         }
