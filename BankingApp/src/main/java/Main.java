@@ -129,7 +129,7 @@ public class Main {
                         BankAccount account2 = atm.findAccount(account2Number);
 
                         if (account1 == null || account2 == null) {
-                            System.out.println("One or both accounts not found!");
+                            System.out.println("One or both accounts not found!\n");
                         } else {
                             System.out.print("Please enter the transfer amount: ");
                             double transferAmount = scanner.nextDouble();
@@ -142,10 +142,10 @@ public class Main {
                                 System.out.println("New balance for account " + account1Number + ": "
                                         + atm.checkBalance(account1Number));
                                 System.out.println("New balance for account " + account2Number + ": "
-                                        + atm.checkBalance(account2Number));
+                                        + atm.checkBalance(account2Number) + "\n");
 
                             } else {
-                                System.out.println("Transfer failed! Insufficient funds.");
+                                System.out.println("Transfer failed! Insufficient funds.\n");
                             }
                         }
                         break;
