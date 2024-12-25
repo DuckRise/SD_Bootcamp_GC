@@ -13,11 +13,13 @@ public class BankAccount {
         balance += amount;
     }
 
-    public void withdraw(double amount) {
+    public boolean withdraw(double amount) {
         if (balance - amount >= 0) {
             balance -= amount;
+            return true;
         } else {
             System.out.println("Insufficient funds!");
+            return false;
         }
     }
 
