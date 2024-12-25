@@ -121,9 +121,9 @@ public class Main {
 
 
                     case 4:
-                        System.out.println("Please enter the account number for account 1:");
+                        System.out.print("Please enter the account number for account 1: ");
                         String account1Number = scanner.nextLine();
-                        System.out.println("Please enter the account number for account 2:");
+                        System.out.print("Please enter the account number for account 2: ");
                         String account2Number = scanner.nextLine();
                         BankAccount account1 = atm.findAccount(account1Number);
                         BankAccount account2 = atm.findAccount(account2Number);
@@ -131,7 +131,7 @@ public class Main {
                         if (account1 == null || account2 == null) {
                             System.out.println("One or both accounts not found!");
                         } else {
-                            System.out.println("Please enter the transfer amount:");
+                            System.out.print("Please enter the transfer amount: ");
                             double transferAmount = scanner.nextDouble();
                             scanner.nextLine();
 
