@@ -121,9 +121,9 @@ public class Main {
 
 
                     case 4:
-                        System.out.print("Please enter the account number for account 1: ");
+                        System.out.print("Please enter the account number for account 1 (SOURCE): ");
                         String account1Number = scanner.nextLine();
-                        System.out.print("Please enter the account number for account 2: ");
+                        System.out.print("Please enter the account number for account 2 (DESTINATION): ");
                         String account2Number = scanner.nextLine();
                         BankAccount account1 = atm.findAccount(account1Number);
                         BankAccount account2 = atm.findAccount(account2Number);
