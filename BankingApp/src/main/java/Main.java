@@ -32,8 +32,7 @@ public class Main {
                 System.out.println("1. Add an account");
                 System.out.println("2. Deposit money");
                 System.out.println("3. Withdraw money");
-                System.out.println("4. Transfer money ***to transfer money you must add two accounts first. They " +
-                        "will be named account 1 and account 2***");
+                System.out.println("4. Transfer money");
                 System.out.println("5. Check balance");
                 System.out.println("6. Exit");
 
