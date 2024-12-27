@@ -165,20 +165,28 @@ public class Main {
                         break;
 
                     case 2:
-                        System.out.print("Please enter the account number: ");
-                        String depositAccountNumber = scanner.nextLine();
-
-                        System.out.print("Please enter the deposit amount: ");
-                        double depositAmount = scanner.nextDouble();
-                        scanner.nextLine();
-
-                        boolean depositSuccess = atm.deposit(depositAccountNumber, depositAmount);
-
-                        if (depositSuccess) {
-                            System.out.println("Deposit successful!");
-                            System.out.println("New balance: " + atm.checkBalance(depositAccountNumber) + "\n");
-                        } else {
-                            System.out.println("Deposit failed! Account not found.\n");
+                        while (true) {
+                            System.out.print("Please enter the account number: ");
+                            if (scanner.hasNextInt()) {
+                                String depositAccountNumber = scanner.nextLine();
+    
+                                System.out.print("Please enter the deposit amount: ");
+                                double depositAmount = scanner.nextDouble();
+                                scanner.nextLine();
+        
+                                boolean depositSuccess = atm.deposit(depositAccountNumber, depositAmount);
+        
+                                if (depositSuccess) {
+                                    System.out.println("Deposit successful!");
+                                    System.out.println("New balance: " + atm.checkBalance(depositAccountNumber) + "\n");
+                                    break;
+                                } else {
+                                    System.out.println("Deposit failed! Account not found.\n");
+                                }                                    
+                            } else {
+                                System.out.println("Invalid option, please try again.\n");
+                                scanner.next();
+                            }
                         }
                         break;
 
