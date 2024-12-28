@@ -249,7 +249,7 @@ public class Main {
                         if (balance != -1) {
                             System.out.println("Balance of account " + balanceAccountNumber + ": " + balance + "\n");
                         } else {
-                            System.out.println("Balance check failed! Account not found.");
+                            System.out.println("Balance check failed! Account not found.\n");
                         }
                         break;
 
