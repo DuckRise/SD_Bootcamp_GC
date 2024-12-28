@@ -112,81 +112,76 @@ public class Main {
                 switch (option) {
 
                     case 1:
-                        while (true) {
-                            System.out.println("Please select an account type:");
-                            System.out.println("1. Small business account");
-                            System.out.println("2. Community account");
-                            System.out.println("3. Client account");
+                        System.out.println("Please select an account type:");
+                        System.out.println("1. Small business account");
+                        System.out.println("2. Community account");
+                        System.out.println("3. Client account");
 
-                            if (scanner.hasNextInt()) {
-                                int accountType = scanner.nextInt();
-                                scanner.nextLine();
+                        if (scanner.hasNextInt()) {
+                            int accountType = scanner.nextInt();
+                            scanner.nextLine();
 
-                                if (accountType >=1 && accountType <= 3) {
-                                    System.out.print("Please enter the account name: ");
-                                    String accountName = scanner.nextLine();
-    
-                                    BankAccount account = null;
-    
-                                    float startingBalance = 0;
-    
-                                    switch (accountType) {
-                                        case 1:
-                                            account = new SmallBusinessAccount(accountName, Integer.toString(atm.accounts.size() + 1),
-                                                startingBalance);
-                                            break;
-                                        case 2:
-                                            account = new CommunityAccount(accountName, Integer.toString(atm.accounts.size() + 1),
-                                                startingBalance);
-                                            break;
-                                        case 3:
-                                            account = new ClientAccount(accountName, Integer.toString(atm.accounts.size() + 1),
-                                                startingBalance);
-                                            break;
-                                        default:
-                                            System.out.println("Invalid account type!");
-                                            break;
-                                    }
-    
-                                    if (account != null) {
-                                        atm.addAccount(account);
-                                        System.out.println("Successfully added:     " + account + " | AccountName: " + 
-                                            accountName + " | AccountNumber: " + account.getAccountNumber() + "\n");
+                            if (accountType >=1 && accountType <= 3) {
+                                System.out.print("Please enter the account name: ");
+                                String accountName = scanner.nextLine();
+
+                                BankAccount account = null;
+
+                                float startingBalance = 0;
+
+                                switch (accountType) {
+                                    case 1:
+                                        account = new SmallBusinessAccount(accountName, Integer.toString(atm.accounts.size() + 1),
+                                            startingBalance);
                                         break;
-                                    }    
-                                } else {
-                                    System.out.println("Invalid option, please try again.\n");
+                                    case 2:
+                                        account = new CommunityAccount(accountName, Integer.toString(atm.accounts.size() + 1),
+                                            startingBalance);
+                                        break;
+                                    case 3:
+                                        account = new ClientAccount(accountName, Integer.toString(atm.accounts.size() + 1),
+                                            startingBalance);
+                                        break;
+                                    default:
+                                        System.out.println("Invalid account type!");
+                                        break;
                                 }
+
+                                if (account != null) {
+                                    atm.addAccount(account);
+                                    System.out.println("Successfully added:     " + account + " | AccountName: " + 
+                                        accountName + " | AccountNumber: " + account.getAccountNumber() + "\n");
+                                    
+                                }    
                             } else {
                                 System.out.println("Invalid option, please try again.\n");
-                                scanner.next();
                             }
+                        } else {
+                            System.out.println("Invalid option, please try again.\n");
+                            scanner.next();
                         }
-                        break;
+                    break;
 
                     case 2:
-                        while (true) {
-                            System.out.print("Please enter the account number: ");
-                            if (scanner.hasNextInt()) {
-                                String depositAccountNumber = scanner.nextLine();
+                        System.out.print("Please enter the account number: ");
+                        if (scanner.hasNextInt()) {
+                            String depositAccountNumber = scanner.nextLine();
+
+                            System.out.print("Please enter the deposit amount: ");
+                            double depositAmount = scanner.nextDouble();
+                            scanner.nextLine();
     
-                                System.out.print("Please enter the deposit amount: ");
-                                double depositAmount = scanner.nextDouble();
-                                scanner.nextLine();
-        
-                                boolean depositSuccess = atm.deposit(depositAccountNumber, depositAmount);
-        
-                                if (depositSuccess) {
-                                    System.out.println("Deposit successful!");
-                                    System.out.println("New balance: " + atm.checkBalance(depositAccountNumber) + "\n");
-                                    break;
-                                } else {
-                                    System.out.println("Deposit failed! Account not found.\n");
-                                }                                    
+                            boolean depositSuccess = atm.deposit(depositAccountNumber, depositAmount);
+    
+                            if (depositSuccess) {
+                                System.out.println("Deposit successful!");
+                                System.out.println("New balance: " + atm.checkBalance(depositAccountNumber) + "\n");
                             } else {
-                                System.out.println("Invalid option, please try again.\n");
-                                scanner.next();
-                            }
+                                System.out.println("Deposit failed! Account not found.\n");
+                            }                                    
+                        } else {
+                            System.out.println("Invalid option, please try again.\n");
+                            scanner.next();
                         }
                         break;
 
