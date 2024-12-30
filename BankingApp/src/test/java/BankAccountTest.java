@@ -31,17 +31,19 @@ public class BankAccountTest {
 
     @Test
     public void testTransfer() {
-        BankAccount toAccount = new BankAccount("Jane Doe", "0987654321", 500.0);
-        account.transfer(toAccount, 500.0);
-        assertEquals(500.0, account.getBalance(), 0.01);
+        BankAccount fromAccount = new BankAccount("Jane Doe2", "1234567890", 500.0, 0);
+        BankAccount toAccount = new BankAccount("Jane Doe", "0987654321", 500.0, 0);
+        account.transfer(fromAccount, toAccount, 500.0);
+        assertEquals(0.0, fromAccount.getBalance(), 0.01);
         assertEquals(1000.0, toAccount.getBalance(), 0.01);
     }
 
     @Test
     public void testTransferInsufficientFunds() {
-        BankAccount toAccount = new BankAccount("Jane Doe", "0987654321", 500.0);
-        account.transfer(toAccount, 1500.0);
-        assertEquals(1000.0, account.getBalance(), 0.01);
+        BankAccount fromAccount = new BankAccount("Jane Doe2", "1234567890", 500.0, 0);
+        BankAccount toAccount = new BankAccount("Jane Doe", "0987654321", 500.0, 0);
+        account.transfer(fromAccount, toAccount, 1500.0);
+        assertEquals(500.0, fromAccount.getBalance(), 0.01);
         assertEquals(500.0, toAccount.getBalance(), 0.01);
     }
 
