@@ -54,12 +54,4 @@ public class BankAccount {
     public double getOverdraft(){
         return overDraft;
     }
-
-    public boolean TwoSignatoriesRestriction(String firstSignatory) {
-        return false;
-    }
-
-
 }
-
-
