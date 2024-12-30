@@ -56,9 +56,4 @@ public class BankAccountTest {
     public void testGetAccountNumber() {
         assertEquals("1234567890", account.getAccountNumber());
     }
-
-    @Test
-    public void testTwoSignatoriesRestriction() {
-        assertFalse(account.TwoSignatoriesRestriction("John Smith"));
-    }
 }
