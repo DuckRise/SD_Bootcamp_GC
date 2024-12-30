@@ -128,7 +128,7 @@ public class Main {
                                 BankAccount account = null;
 
                                 float startingBalance = 0;
-
+                                
                                 switch (accountType) {
                                     case 1:
                                         account = new SmallBusinessAccount(accountName, Integer.toString(atm.accounts.size() + 1),
@@ -150,7 +150,7 @@ public class Main {
                                 if (account != null) {
                                     atm.addAccount(account);
                                     System.out.println("Successfully added:     " + account + " | AccountName: " + 
-                                        accountName + " | AccountNumber: " + account.getAccountNumber() + "\n");
+                                        accountName + " | AccountNumber: " + account.getAccountNumber() + " | Overdraft: " + account.getOverdraft() + "\n");
                                     
                                 }    
                             } else {
@@ -240,14 +240,15 @@ public class Main {
                         String balanceAccountNumber = scanner.nextLine();
 
                         double balance = atm.checkBalance(balanceAccountNumber);
+                        double overdraft = atm.checkOverdraft(balanceAccountNumber);
 
                         if (balance != -1) {
-                            System.out.println("Balance of account " + balanceAccountNumber + ": " + balance + "\n");
+                            System.out.println("Balance of account " + balanceAccountNumber + ": " + balance + " | Overdraft: " + overdraft + "\n");
                         } else {
                             System.out.println("Balance check failed! Account not found.\n");
                         }
                         break;
-
+                    
                     case 6:
                         System.out.println("Exiting the Business ATM system. Thank you for using our services!");
                         System.exit(0);
@@ -285,7 +286,7 @@ public class Main {
 
     public boolean withdraw(String accountNumber, double amount) {
         BankAccount account = findAccount(accountNumber);
-        if (account != null && account.getBalance() >= amount) {
+        if (account != null && (account.getBalance() + account.getOverdraft()) >= amount) {
             account.withdraw(amount);
             return true;
         }
@@ -296,6 +297,14 @@ public class Main {
         BankAccount account = findAccount(accountNumber);
         if (account != null) {
             return account.getBalance();
+        }
+        return -1;
+    }
+
+    public double checkOverdraft(String accountNumber){
+        BankAccount account = findAccount(accountNumber);
+        if (account != null) {
+            return account.getOverdraft();
         }
         return -1;
     }

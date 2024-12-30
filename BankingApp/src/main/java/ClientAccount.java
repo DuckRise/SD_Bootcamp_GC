@@ -1,8 +1,8 @@
 public class ClientAccount extends BankAccount {
-    private double overdraftFacility = 1500.0;
+    private static double overdraftFacility = 1500.0;
 
     public ClientAccount(String accountName, String accountNumber, double balance) {
-        super(accountName, accountNumber, balance);
+        super(accountName, accountNumber, balance, overdraftFacility);
     }
 
     public double getOverdraftFacility() {
