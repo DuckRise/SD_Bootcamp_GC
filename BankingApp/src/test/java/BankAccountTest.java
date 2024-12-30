@@ -8,7 +8,7 @@ public class BankAccountTest {
 
     @Before
     public void setUp() {
-        account = new BankAccount("John Smith", "1234567890", 1000.0);
+        account = new BankAccount("John Smith", "1234567890", 1000.0, 0);
     }
 
     @Test
