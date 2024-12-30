@@ -26,8 +26,4 @@ public class SmallBusinessAccount extends BankAccount {
     //         return true;
     //     }
     // }
-
-    private void setBalance(double d) {
-        
-    }
 }
